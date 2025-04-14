@@ -1,23 +1,44 @@
 export default function render(weather, location, forecast) {
-  const renderArray = [];
-  const dayNames = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-  ];
-  console.log(location);
-  console.log(forecast);
-  weather.forEach((day) => {
-    renderArray.push({
-      dayName: dayNames[new Date(day.datetime).getUTCDay()],
-      temperature: day.temp,
-      condition: day.conditions,
-      icon: day.icon,
-    });
+  //Grab divs to render, clear before rendering
+  const today = document.querySelector(".today");
+  const dayDivs = document.querySelectorAll("[data-index]");
+  today.replaceChildren();
+  dayDivs.forEach((div) => div.replaceChildren());
+
+  //make sure error div no longer has the "active" class
+  const errorDiv = document.getElementById("error-display");
+  errorDiv.replaceChildren();
+
+  //Declare path to icons for template string usage
+  const iconPath = "images/icons";
+
+  //Create elements, populate with relevant data
+  dayDivs.forEach((div) => {
+    const index = div.dataset.index;
+    const dayNameHeading = document.createElement("h3");
+    const temperatureNumber = document.createElement("h3");
+    const iconImg = document.createElement("img");
+    const conditionText = document.createElement("p");
+
+    dayNameHeading.textContent = `${weather[index].dayName}`;
+    temperatureNumber.textContent = `${weather[index].temperature}`;
+    iconImg.src = `${iconPath}/${weather[index].icon}.svg`;
+    iconImg.className = "icon";
+    conditionText.textContent = `${weather[index].condition}`;
+
+    div.appendChild(dayNameHeading);
+    div.appendChild(temperatureNumber);
+    div.appendChild(iconImg);
+    div.appendChild(conditionText);
   });
-  console.log(renderArray);
+
+  //For the today section only
+  const locationHeading = document.createElement("h2");
+  const forecastHeading = document.createElement("h2");
+
+  locationHeading.textContent = forecast;
+  forecastHeading.textContent = location;
+
+  today.appendChild(locationHeading);
+  today.appendChild(forecastHeading);
 }

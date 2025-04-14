@@ -11,11 +11,19 @@
         <label class="search-label" for="search">Find a place to get the weather from:
           <span id="error" class="error" aria-live="polite">
         </label>
-        <input id="search" class="search-input" type="text">
+        <input 
+          id="search" 
+          class="search-input" 
+          type="text" 
+          name="weather-search" 
+          role="searchbox" 
+          required 
+          autocomplete="new-password"
+        >
         <input class="button" type="button" value="Search">
       </div>
     </form>
-    <div class="main" data-index="0">
+    <div class="today" data-index="0">
 
     </div>
     <div class="forecast">
@@ -25,6 +33,8 @@
       <div class="day" data-index="4"></div>
       <div class="day" data-index="5"></div>
       <div class="day" data-index="6"></div>
+    </div>
+    <div id="error-display">
     </div>
   </body>
 </html>
