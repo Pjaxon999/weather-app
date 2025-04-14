@@ -18,7 +18,7 @@ export default function render(weather, location, forecast) {
     const dayNameHeading = document.createElement("h3");
     const temperatureNumber = document.createElement("h3");
     const iconImg = document.createElement("img");
-    const conditionText = document.createElement("p");
+    const conditionText = document.createElement("h3");
 
     dayNameHeading.textContent = `${weather[index].dayName}`;
     temperatureNumber.textContent = `${weather[index].temperature}`;
@@ -33,12 +33,12 @@ export default function render(weather, location, forecast) {
   });
 
   //For the today section only
-  const locationHeading = document.createElement("h2");
-  const forecastHeading = document.createElement("h2");
+  const locationHeading = document.createElement("h3");
+  const forecastHeading = document.createElement("h3");
 
-  locationHeading.textContent = forecast;
-  forecastHeading.textContent = location;
+  forecastHeading.textContent = `Resolved Location: ${location}`;
+  locationHeading.textContent = `Forecast: ${forecast}`;
 
-  today.appendChild(locationHeading);
   today.appendChild(forecastHeading);
+  today.appendChild(locationHeading);
 }

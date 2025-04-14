@@ -3,14 +3,22 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>The Weather Thing</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&family=Sniglet:wght@400;800&display=swap" rel="stylesheet">
   </head>
   <body>
+  <div class="wrapper">
+    <header>
+      <h1>The Weather Thing</h1>
+    </header>
     <form>
-      <div role="search">
+      <div class="search" role="search">
         <label class="search-label" for="search">Find a place to get the weather from:
           <span id="error" class="error" aria-live="polite">
         </label>
+        <div class="inputs">
         <input 
           id="search" 
           class="search-input" 
@@ -21,6 +29,7 @@
           autocomplete="new-password"
         >
         <input class="button" type="button" value="Search">
+        </div>
       </div>
     </form>
     <div class="today" data-index="0">
@@ -36,5 +45,6 @@
     </div>
     <div id="error-display">
     </div>
+  </div>
   </body>
 </html>

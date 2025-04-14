@@ -1,31 +1,28 @@
 /* Reset */
 :root {
   line-height: 1.5;
+
+  /* Custom Properties */
+  --color-main: #fce7c8;
+  --color-secondary: #b1c29e;
+  --color-trinary: #fada7a;
+  --color-accent: #f0a04b;
+
+  --font-fun: "Sniglet", sans-serif;
+  --font-display: "Quicksand", sans-serif;
 }
 
 h1,
 h2,
 h3,
-h4,
-h5,
-figure,
-p,
-ol,
-ul {
+p {
   margin: 0;
-}
-
-ol[role="list"],
-ul[role="list"] {
-  list-style: none;
-  padding-inline: 0;
+  text-align: center;
 }
 
 h1,
 h2,
-h3,
-h4,
-h5 {
+h3 {
   font-size: inherit;
   font-weight: inherit;
 }
@@ -33,4 +30,140 @@ h5 {
 img {
   display: block;
   max-inline-size: 100%;
+}
+
+/* Text Styles */
+
+h1 {
+  font-size: 2.5em;
+  font-weight: 500;
+  font-family: var(--font-fun);
+  line-height: calc(1ex / 0.42);
+  margin: calc(1ex / 0.42) 0;
+}
+
+h2,
+h3,
+p,
+form {
+  font-family: var(--font-display);
+}
+
+h2 {
+  font-size: 2em;
+  line-height: calc(1ex / 0.42);
+  margin: calc(1ex / 0.42) 0;
+}
+
+h3 {
+  font-size: 1.75em;
+  line-height: calc(1ex / 0.38);
+  margin: calc(1ex / 0.38) 0;
+}
+
+p {
+  font-size: 1em;
+  line-height: calc(1ex / 0.32);
+  margin: calc(1ex / 0.32) 0;
+}
+
+@supports (font-size-adjust: 1) {
+  body {
+    font-size-adjust: 0.5;
+  }
+}
+
+/* Layout */
+
+.wrapper,
+.today,
+.day,
+.forecast,
+.search {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.forecast {
+  width: 100%;
+}
+
+.search {
+  margin: 2rem;
+}
+
+.inputs {
+  display: flex;
+  align-items: center;
+}
+
+/* Colors */
+
+header {
+  width: 100%;
+  background-color: var(--color-secondary);
+}
+
+html {
+  background-color: var(--color-main);
+}
+
+.forecast {
+  background-color: var(--color-trinary);
+}
+
+.today {
+  background-color: var(--color-accent);
+}
+
+/* Images */
+
+img {
+  height: 60px;
+}
+
+.today img {
+  height: 120px;
+}
+
+#gitimg {
+  height: 25px;
+  width: 25px;
+  display: inline;
+}
+
+/* Form Elements */
+
+.button {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border: 0;
+  background: var(--color-accent);
+  font-size: 1rem;
+  white-space: nowrap;
+  text-decoration: none;
+  padding: 0.25rem 0.5rem;
+  margin: 0.25rem;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: var(--color-trinary);
+}
+
+@media only screen and (min-width: 900px) {
+  .today {
+    width: 100%;
+  }
+}
+
+@media only screen and (min-width: 1290px) {
+  .forecast {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    gap: 1rem;
+  }
 }
